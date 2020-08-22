@@ -1,0 +1,19 @@
+.A{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    color: plum;
+}
+.welcome{
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(243, 19, 232);
+}
+
+a:hover{
+    text-decoration: underline;
+    color: rgb(201, 8, 169);
+}
