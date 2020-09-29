@@ -4,7 +4,7 @@ function WikiLink(props) {
     if(props.wikilink){
         return (
             <div className="A">
-                <h2><a target= "_blank" thref={props.wikilink}><FcWikipedia size="40px" /></a></h2>
+                <h2><a target= "_blank" href={props.wikilink}><FcWikipedia size="40px" /></a></h2>
             </div>
         )
     }

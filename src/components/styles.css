@@ -4,6 +4,11 @@
     text-align: center;
     color: plum;
 }
+@media screen and (max-width:800px) {
+    .A {
+      width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+}
 .welcome{
     text-align: center;
 }

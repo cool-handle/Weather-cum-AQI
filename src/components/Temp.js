@@ -7,8 +7,11 @@ function Temp(props) {
     const [away, setAway] = useState('°F')
     
     useEffect(()=>{
-        if(away==='°C')
-        setValue(props.temp*1.8 + 32)
+        if(away==='°C'){
+            var x = props.temp*1.8 + 32
+            x= x.toFixed(2)
+            setValue(x)
+        }
         else
         setValue(props.temp)
     })
@@ -17,7 +20,9 @@ function Temp(props) {
         if(away==='°F'){
         setUnit('°F')
         setAway('°C')
-        setValue(props.temp*1.8 + 32)
+        var x = props.temp*1.8 + 32
+        x= x.toFixed(2)
+        setValue(x)
         }
         else{
         setUnit('°C')

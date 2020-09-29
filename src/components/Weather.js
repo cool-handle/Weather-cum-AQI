@@ -41,7 +41,7 @@ class Weather extends Component {
         
         return (
             <div>
-                <h1 className="welcome">Welcome Mohit 1200!</h1>
+                <h1 className="welcome">Welcome User!</h1>
                 <ChooseCountry countryHandler = { this.countryHandler } />
                 <Temp temp= {this.state.temperature.temp} />
                 <Description description= {this.state.temperature.description} />
@@ -52,8 +52,8 @@ class Weather extends Component {
                 <Pressure pressure={this.state.temperature.pressure} />
                 <Sunrise sunrise= {this.state.temperature.sunrise} />
                 <Sunset sunset= {this.state.temperature.sunset} />
-                {/* <WikiLink wikilink= {this.state.temperature.wikilink} />
-                <Text text={this.state.temperature.text} color= {this.state.temperature.color} />
+                <WikiLink wikilink= {this.state.temperature.wikilink} />
+                {/* <Text text={this.state.temperature.text} color= {this.state.temperature.color} />
                 <Alert alert={this.state.temperature.alert} color= {this.state.temperature.color} />
                 <Pm2 pm2={this.state.temperature.pm2} loading={this.state.loading} />
                 <Pm10 pm10 = {this.state.temperature.pm10} loading={this.state.loading} />
