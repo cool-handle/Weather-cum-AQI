@@ -41,7 +41,7 @@ class Weather extends Component {
         
         return (
             <div>
-                <h1 className="welcome">Welcome Mohit 120!</h1>
+                <h1 className="welcome">Welcome Mohit 1200!</h1>
                 <ChooseCountry countryHandler = { this.countryHandler } />
                 <Temp temp= {this.state.temperature.temp} />
                 <Description description= {this.state.temperature.description} />

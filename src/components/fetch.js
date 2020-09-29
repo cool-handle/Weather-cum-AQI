@@ -31,7 +31,7 @@ export const dataToShow1 = async (code) => {
     
     var long = datarecieved.data.coord.lon
     var lat = datarecieved.data.coord.lat
-    var waterdata = await axios.get(`https://api.airpollutionapi.com/1.0/aqi?lat=${lat}&lon=${long}&APPID=cgs822luim0mi45psso3bdk4tf`)
+    //var waterdata = await axios.get(`http://api.airpollutionapi.com/1.0/aqi?lat=${lat}&lon=${long}&APPID=cgs822luim0mi45psso3bdk4tf`)
     // console.log(waterdata)
     // console.log(waterdata.data.data.text)
     
