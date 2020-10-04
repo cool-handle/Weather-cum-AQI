@@ -28,9 +28,20 @@ export const dataToShow1 = async (code) => {
     var api = "&units=metric&appid=1f812bf5bffdf73e8040a450bc10200a"
     var URL = `${start}${code}${api}`
     var datarecieved = await axios.get(`${URL}`)
-    
     var long = datarecieved.data.coord.lon
     var lat = datarecieved.data.coord.lat
+    var startA = "https://api.openweathermap.org/data/2.5/onecall?lat="
+    
+    var URL_range = `${startA}${lat}&lon=${long}${api}`
+    // https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&units=metric&appid=1f812bf5bffdf73e8040a450bc10200a
+    var rangejson = await axios.get(`${URL_range}`)
+    var forecast = rangejson.data.daily
+    var forecastmax = []
+    var forecastmin = []
+    for(var i=0; i<7 ; i++){
+        forecastmin.push(forecast[i+1].temp.min)
+        forecastmax.push(forecast[i+1].temp.max)
+    }
     //var waterdata = await axios.get(`http://api.airpollutionapi.com/1.0/aqi?lat=${lat}&lon=${long}&APPID=cgs822luim0mi45psso3bdk4tf`)
     // console.log(waterdata)
     // console.log(waterdata.data.data.text)
@@ -54,7 +65,7 @@ export const dataToShow1 = async (code) => {
     // let o3 = waterdata.data.data.aqiParams[0]
 
     return ({temp,description,humidity,sealevel,wind,
-        pressure,lastUpdated,sunrise,sunset, wikilink,
+        pressure,lastUpdated,sunrise,sunset, wikilink,forecastmin,forecastmax
         // text, alert, pm10, pm2, o3,color
     });
 }

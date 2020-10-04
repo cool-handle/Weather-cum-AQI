@@ -11,6 +11,7 @@ import Sealevel from './Sealevel'
 import Wind from './Wind'
 import Pressure from './Pressure'
 import WikiLink from './WikiLink'
+import MyChart from './Chart'
 import './styles.css'
 import Text from './Text'
 import Alert from './Alert'
@@ -53,6 +54,7 @@ class Weather extends Component {
                 <Sunrise sunrise= {this.state.temperature.sunrise} />
                 <Sunset sunset= {this.state.temperature.sunset} />
                 <WikiLink wikilink= {this.state.temperature.wikilink} />
+                <MyChart chart= {this.state.temperature.forecastmin} chart1={this.state.temperature.forecastmax}  />
                 {/* <Text text={this.state.temperature.text} color= {this.state.temperature.color} />
                 <Alert alert={this.state.temperature.alert} color= {this.state.temperature.color} />
                 <Pm2 pm2={this.state.temperature.pm2} loading={this.state.loading} />
