@@ -9,9 +9,9 @@ function Wind(props) {
             </div>
         )
         }
-        else{
-            return null
-        }
+    else{
+        return null
+    }
 }
 
 export default Wind

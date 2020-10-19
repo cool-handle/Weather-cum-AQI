@@ -4,6 +4,30 @@
     text-align: center;
     color: plum;
 }
+.B{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+.D{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.C{
+    color: #ff0;
+    display: inline-block;
+    width: 14.01%;
+    text-align: center;
+    border: 2px solid white;
+}
+.E{
+    height: 300px;
+    
+    width: 50%;
+    text-align: center;
+}
 @media screen and (max-width:800px) {
     .A {
       width:100%; /* The width is 100%, when the viewport is 800px or smaller */
