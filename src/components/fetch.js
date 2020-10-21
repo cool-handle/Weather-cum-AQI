@@ -65,23 +65,35 @@ export const dataToShow1 = async (code,name) => {
         //console.log(s)
         weatherdis.push(s)
     }
-    var cityconfirm, stateactive,staterecovered,statedeath, stateconfirm
+    var cityconfirm, cityactive, citydeath, cityrecovered
+    var stateactive,statedeath, stateconfirm,statename,staterecovered
     var covid = await axios.get(`https://api.covidindiatracker.com/state_data.json`)
+    
+    //https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise
+    //https://api.covid19india.org/state_district_wise.json
     console.log(covid)
     for(var i=0; i<covid.data.length; i++){
         for(var j = 0 ; j<covid.data[i].districtData.length ; j++){
             if(covid.data[i].districtData[j].id == name){
-                cityconfirm = covid.data[i].districtData[j].confirmed
+                //cityconfirm = covid.data[i].districtData[j].confirmed
                 stateactive = covid.data[i].active
                 staterecovered = covid.data[i].recovered
                 statedeath = covid.data[i].deaths
                 stateconfirm = covid.data[i].confirmed
+                statename = covid.data[i].state
                 break;
             }
         }
     }
-    var coviddata= [cityconfirm,stateconfirm,stateactive,staterecovered,statedeath]
-    // console.log(cityconfirm)
+    var covidcity = await axios.get(`https://api.covid19india.org/state_district_wise.json`)
+    cityconfirm= covidcity.data[`${statename}`].districtData[`${name}`].confirmed
+    cityactive = covidcity.data[`${statename}`].districtData[`${name}`].active
+    citydeath = covidcity.data[`${statename}`].districtData[`${name}`].deceased
+    cityrecovered = covidcity.data[`${statename}`].districtData[`${name}`].recovered
+
+    var coviddatastate = [stateconfirm,stateactive,staterecovered]
+    var coviddatacity = [cityconfirm,cityactive,cityrecovered]
+    //  console.log(cityconfirm)
     // console.log(staterecovered)
     // console.log(staterecovered)
     // console.log(statedeath)
@@ -121,7 +133,7 @@ export const dataToShow1 = async (code,name) => {
     // let o3 = waterdata.data.data.aqiParams[0]
 
     return ({temp,description,humidity,sealevel,wind,
-        pressure,lastUpdated,sunrise,sunset, wikilink,forecastmin,forecastmax,humidityfor,weatherdis, coviddata
+        pressure,lastUpdated,sunrise,sunset, wikilink,forecastmin,forecastmax,humidityfor,weatherdis, coviddatacity,coviddatastate
         // ,image1
         // text, alert, pm10, pm2, o3,color
     });

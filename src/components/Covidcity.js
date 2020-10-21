@@ -1,11 +1,11 @@
 import React from 'react'
 import {Bar} from 'react-chartjs-2';
 import './styles.css'
-function Covid(props) {
+function Covidcity(props) {
     if(props.data){
         const state = {
-            labels: [ 'Confirmed in state', 'Active in state',
-                     'Recovered in state'],
+            labels: [ 'Confirmed in city', 'Active in city',
+                     'Recovered in city'],
             datasets: [
               {
                 backgroundColor: 'rgba(75,192,192,1)',
@@ -18,6 +18,7 @@ function Covid(props) {
         return (
             <div class ="E">
               <Bar
+
                 width={60}
                 height={450}
                 data={state}
@@ -25,7 +26,7 @@ function Covid(props) {
                     maintainAspectRatio: false,
                   title:{
                     display:true,
-                    text:'COVID-19 Cases in State',
+                    text:'COVID-19 Cases in City',
                     fontColor: "white",
                     fontSize:20
                   },
@@ -58,4 +59,4 @@ function Covid(props) {
     }
 }
 
-export default Covid
+export default Covidcity

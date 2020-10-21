@@ -18,13 +18,13 @@
 .C{
     color: #ff0;
     display: inline-block;
-    width: 14.01%;
+    width: 13%;
     text-align: center;
     border: 2px solid white;
 }
 .E{
     height: 300px;
-    
+    display: inline-block;
     width: 50%;
     text-align: center;
 }
@@ -43,6 +43,5 @@ a{
 }
 
 a:hover{
-    text-decoration: underline;
     color: rgb(201, 8, 169);
 }

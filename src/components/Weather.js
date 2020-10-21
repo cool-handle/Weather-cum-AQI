@@ -21,6 +21,7 @@ import Pm2 from './Pm2'
 import O3 from './O3'
 import Weatherforecast from './Weatherforcast'
 import Covid from './Covid'
+import Covidcity from './Covidcity'
 class Weather extends Component {
     constructor(props){
         super(props)
@@ -59,8 +60,8 @@ class Weather extends Component {
                 <MyChart chart= {this.state.temperature.forecastmin} chart1={this.state.temperature.forecastmax}  />
                 <HumidityChart chart = {this.state.temperature.humidityfor} />
                 <Weatherforecast data = {this.state.temperature.weatherdis} />
-                <Covid data= {this.state.temperature.coviddata} />
-
+                <Covid data= {this.state.temperature.coviddatastate} />
+                <Covidcity data= {this.state.temperature.coviddatacity} />
                 {/* <Text text={this.state.temperature.text} color= {this.state.temperature.color} />
                 <Alert alert={this.state.temperature.alert} color= {this.state.temperature.color} />
                 <Pm2 pm2={this.state.temperature.pm2} loading={this.state.loading} />
