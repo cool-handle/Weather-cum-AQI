@@ -18,7 +18,7 @@ function HumidityChart(props) {
             ]
         }
         return (
-        <div class = "B">
+        <div className = "B">
           <Line
             width={50}
             height={450}

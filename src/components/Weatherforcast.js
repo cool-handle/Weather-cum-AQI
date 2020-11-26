@@ -5,7 +5,7 @@ function Weatherforecast(props) {
     if(props.data){
         return (
             <div>
-                <h2 class = "D">Weather forecast for next 7 days</h2>
+                <h2 className = "D">Weather forecast for next 7 days</h2>
                 <div>
                     <div className = "C">
                         <p>{props.day[0]}</p>
