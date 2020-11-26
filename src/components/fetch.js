@@ -65,34 +65,34 @@ export const dataToShow1 = async (code,name) => {
         //console.log(s)
         weatherdis.push(s)
     }
-    var cityconfirm, cityactive, citydeath, cityrecovered
-    var stateactive,statedeath, stateconfirm,statename,staterecovered
-    var covid = await axios.get(`https://api.covidindiatracker.com/state_data.json`)
+    // var cityconfirm, cityactive, citydeath, cityrecovered
+    // var stateactive,statedeath, stateconfirm,statename,staterecovered
+    // var covid = await axios.get(`https://api.covidindiatracker.com/state_data.json`)
     
-    //https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise
-    //https://api.covid19india.org/state_district_wise.json
-    console.log(covid)
-    for(var i=0; i<covid.data.length; i++){
-        for(var j = 0 ; j<covid.data[i].districtData.length ; j++){
-            if(covid.data[i].districtData[j].id == name){
-                //cityconfirm = covid.data[i].districtData[j].confirmed
-                stateactive = covid.data[i].active
-                staterecovered = covid.data[i].recovered
-                statedeath = covid.data[i].deaths
-                stateconfirm = covid.data[i].confirmed
-                statename = covid.data[i].state
-                break;
-            }
-        }
-    }
-    var covidcity = await axios.get(`https://api.covid19india.org/state_district_wise.json`)
-    cityconfirm= covidcity.data[`${statename}`].districtData[`${name}`].confirmed
-    cityactive = covidcity.data[`${statename}`].districtData[`${name}`].active
-    citydeath = covidcity.data[`${statename}`].districtData[`${name}`].deceased
-    cityrecovered = covidcity.data[`${statename}`].districtData[`${name}`].recovered
+    // //https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise
+    // //https://api.covid19india.org/state_district_wise.json
+    // console.log(covid)
+    // for(var i=0; i<covid.data.length; i++){
+    //     for(var j = 0 ; j<covid.data[i].districtData.length ; j++){
+    //         if(covid.data[i].districtData[j].id == name){
+    //             //cityconfirm = covid.data[i].districtData[j].confirmed
+    //             stateactive = covid.data[i].active
+    //             staterecovered = covid.data[i].recovered
+    //             statedeath = covid.data[i].deaths
+    //             stateconfirm = covid.data[i].confirmed
+    //             statename = covid.data[i].state
+    //             break;
+    //         }
+    //     }
+    // }
+    // var covidcity = await axios.get(`https://api.covid19india.org/state_district_wise.json`)
+    // cityconfirm= covidcity.data[`${statename}`].districtData[`${name}`].confirmed
+    // cityactive = covidcity.data[`${statename}`].districtData[`${name}`].active
+    // citydeath = covidcity.data[`${statename}`].districtData[`${name}`].deceased
+    // cityrecovered = covidcity.data[`${statename}`].districtData[`${name}`].recovered
 
-    var coviddatastate = [stateconfirm,stateactive,staterecovered]
-    var coviddatacity = [cityconfirm,cityactive,cityrecovered]
+    // var coviddatastate = [stateconfirm,stateactive,staterecovered]
+    // var coviddatacity = [cityconfirm,cityactive,cityrecovered]
     //  console.log(cityconfirm)
     // console.log(staterecovered)
     // console.log(staterecovered)
@@ -111,6 +111,43 @@ export const dataToShow1 = async (code,name) => {
     let sunrise= datarecieved.data.sys.sunrise
     let sunset= datarecieved.data.sys.sunset
     let wikilink = `http://en.wikipedia.org/wiki/${name}`
+
+    var myDate = new Date((lastUpdated)*1000);
+    var dayy = myDate.toString()
+    var today = dayy.substring(0,3)
+    var future = ["Mon", "Tue" , "Wed" , "Thr", "Fri" , "Sat" , "Sun"]
+    var val = 4
+
+    if(today === "Sun"){
+        val = 0
+    }
+    else if (today === "Mon"){
+        val = 1
+    }
+    else if(today === "Tue"){
+        val = 2
+    }
+    else if (today === "Wed"){
+        val = 3
+    }
+    else if (today === "Thu"){
+        val = 4
+    }
+    else if (today === "Fri"){
+        val = 5
+    }
+    else if (today === "Sat"){
+        val = 6
+    }
+    console.log(today)
+    console.log(val)
+    var futuredays = []
+    for(var i =0 ; i<7 ; i++){
+        futuredays.push(future[val])
+        val++;
+        val = val % 7
+    }
+    //console.log(futuredays)
     //console.log(datarecieved.data.name)
     // var urlforapi = "https://www.triposo.com/api/20200803/location.json?id=London&token=3bm9eetdtd9a5jrmuamlctegyjji5w2d"
 
@@ -133,7 +170,8 @@ export const dataToShow1 = async (code,name) => {
     // let o3 = waterdata.data.data.aqiParams[0]
 
     return ({temp,description,humidity,sealevel,wind,
-        pressure,lastUpdated,sunrise,sunset, wikilink,forecastmin,forecastmax,humidityfor,weatherdis, coviddatacity,coviddatastate
+        pressure,lastUpdated,sunrise,sunset, wikilink,forecastmin,forecastmax,humidityfor,weatherdis, futuredays
+        //coviddatacity,coviddatastate
         // ,image1
         // text, alert, pm10, pm2, o3,color
     });

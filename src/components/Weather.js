@@ -32,7 +32,7 @@ class Weather extends Component {
         }
     }
     countryHandler= async (selectedData) => {
-        console.log(selectedData[0].name);
+        console.log(selectedData[0].name)
         const dataToShow = await dataToShow1(selectedData[0].code,selectedData[0].name)
         
         this.setState({
@@ -57,11 +57,11 @@ class Weather extends Component {
                 <Sunrise sunrise= {this.state.temperature.sunrise} />
                 <Sunset sunset= {this.state.temperature.sunset} />
                 <WikiLink wikilink= {this.state.temperature.wikilink} />
-                <MyChart chart= {this.state.temperature.forecastmin} chart1={this.state.temperature.forecastmax}  />
-                <HumidityChart chart = {this.state.temperature.humidityfor} />
-                <Weatherforecast data = {this.state.temperature.weatherdis} />
-                <Covid data= {this.state.temperature.coviddatastate} />
-                <Covidcity data= {this.state.temperature.coviddatacity} />
+                <MyChart chart= {this.state.temperature.forecastmin} chart1={this.state.temperature.forecastmax} days = {this.state.temperature.futuredays} />
+                <HumidityChart chart = {this.state.temperature.humidityfor} days = {this.state.temperature.futuredays} />
+                <Weatherforecast data = {this.state.temperature.weatherdis} day = {this.state.temperature.futuredays}/>
+                <Covid data= {this.state.temperature.coviddatastate}/>
+                <Covidcity data= {this.state.temperature.coviddatacity}/>
                 {/* <Text text={this.state.temperature.text} color= {this.state.temperature.color} />
                 <Alert alert={this.state.temperature.alert} color= {this.state.temperature.color} />
                 <Pm2 pm2={this.state.temperature.pm2} loading={this.state.loading} />
