@@ -46,6 +46,7 @@ export const dataToShow1 = async (code,name) => {
         forecastmin.push(forecast[i+1].temp.min)
         forecastmax.push(forecast[i+1].temp.max)
     }
+    var l;
     var humidityfor = []
     for(var i=0; i<7; i++){
         humidityfor.push(forecast[i+1].humidity)
